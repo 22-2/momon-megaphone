@@ -6,33 +6,8 @@
     <title>Momon Megaphone</title>
   </head>
   <body>
-    <h1>Momon Megaphone</h1>
-    <button id="post">投稿</button>
-    <textarea placeholder="ポストしたい内容を入力してね"> </textarea>
+    てすとおわり
   </body>
   <script>
-    const button = document.querySelector("#post");
-    const textarea = document.querySelector("textarea");
-    button.addEventListener("click", async () => {
-      const url =
-        "https://script.google.com/macros/s/AKfycby2S7ulSz4uu7C70qoZpsjS6UNYp6izUVEPnHfXdNF6TpJq7mRVWpNIDrbaCwnppzXB/exec";
-      textarea.setAttribute("readOnly", "true");
-      await fetch(url, {
-        mode: "no-cors", // CORSポリシーによる制限を回避
-        method: "post",
-        "Content-Type": "text/plain",
-        // GASは、application/json形式のContent-Typeを持つプリフライトリクエストを処理できない
-        Origin: "https://22-2.github.io",
-        body: JSON.stringify({
-          message: textarea.value,
-        }),
-      })
-        .then(() => {
-          textarea.value = "";
-        })
-        .finally(() => {
-          textarea.setAttribute("readOnly", "false");
-        });
-    });
   </script>
 </html>
