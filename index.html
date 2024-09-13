@@ -16,7 +16,8 @@
     button.addEventListener("click", async () => {
       const url =
         "https://script.google.com/macros/s/AKfycby2S7ulSz4uu7C70qoZpsjS6UNYp6izUVEPnHfXdNF6TpJq7mRVWpNIDrbaCwnppzXB/exec";
-      const resp = await fetch(url, {
+      textarea.setAttribute("readOnly", "true");
+      await fetch(url, {
         mode: "no-cors", // CORSポリシーによる制限を回避
         method: "post",
         "Content-Type": "text/plain",
@@ -25,8 +26,13 @@
         body: JSON.stringify({
           message: textarea.value,
         }),
-      });
-      textarea.value = "";
+      })
+        .then(() => {
+          textarea.value = "";
+        })
+        .finally(() => {
+          textarea.setAttribute("readOnly", "false");
+        });
     });
   </script>
 </html>
