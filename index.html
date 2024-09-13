@@ -17,7 +17,7 @@
       const url =
         "https://script.google.com/macros/s/AKfycby2S7ulSz4uu7C70qoZpsjS6UNYp6izUVEPnHfXdNF6TpJq7mRVWpNIDrbaCwnppzXB/exec";
       const resp = await fetch(url, {
-        mode: "cors",
+        mode: "no-cors", // CORSポリシーによる制限を回避
         method: "post",
         "Content-Type": "text/plain",
         // GASは、application/json形式のContent-Typeを持つプリフライトリクエストを処理できない
