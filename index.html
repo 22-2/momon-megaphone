@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Momon Megaphone</title>
-</head>
-<body>
-  <h1>Momon Megaphone</h1>
-  <button id="post">
-    投稿
-  </button>
-  <textarea placeholder="ポストしたい内容を入力してね">
-  </textarea>
-</body>
-<script>
-  const button = document.querySelector("#post")
-  const textarea = document.querySelector("textarea")
-  button.addEventListener("click", async () => {
-    const url = "https://script.google.com/macros/s/AKfycby2S7ulSz4uu7C70qoZpsjS6UNYp6izUVEPnHfXdNF6TpJq7mRVWpNIDrbaCwnppzXB/exec"
-    const resp = await fetch(url, {
-      method: "post",
-      body: JSON.stringify({
-        message: textarea.value,
-      })
-    })
-    textarea.value = "";
-  })
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momon Megaphone</title>
+  </head>
+  <body>
+    <h1>Momon Megaphone</h1>
+    <button id="post">投稿</button>
+    <textarea placeholder="ポストしたい内容を入力してね"> </textarea>
+  </body>
+  <script>
+    const button = document.querySelector("#post");
+    const textarea = document.querySelector("textarea");
+    button.addEventListener("click", async () => {
+      const url =
+        "https://script.google.com/macros/s/AKfycby2S7ulSz4uu7C70qoZpsjS6UNYp6izUVEPnHfXdNF6TpJq7mRVWpNIDrbaCwnppzXB/exec";
+      const resp = await fetch(url, {
+        mode: "cors",
+        method: "post",
+        "Content-Type": "application/json",
+        Origin: "https://22-2.github.io",
+        body: JSON.stringify({
+          message: textarea.value,
+        }),
+      });
+      textarea.value = "";
+    });
+  </script>
 </html>
