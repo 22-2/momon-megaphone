@@ -19,7 +19,8 @@
       const resp = await fetch(url, {
         mode: "cors",
         method: "post",
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
+        // GASは、application/json形式のContent-Typeを持つプリフライトリクエストを処理できない
         Origin: "https://22-2.github.io",
         body: JSON.stringify({
           message: textarea.value,
